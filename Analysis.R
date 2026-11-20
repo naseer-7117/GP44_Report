@@ -10,3 +10,10 @@
 #
 # Run from the project folder:  Rscript Analysis.R > Rscript.log 2>&1
 # =====================================================================
+
+library(dplyr, warn.conflicts = FALSE)
+library(ggplot2)
+
+# ---- 1. Load the data ------------------------------------------------
+students <- read.csv("student-mat.csv")
+cat("Rows and columns in the raw data:", dim(students), "\n")
