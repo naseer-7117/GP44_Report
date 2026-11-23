@@ -17,3 +17,14 @@ library(ggplot2)
 # ---- 1. Load the data ------------------------------------------------
 students <- read.csv("student-mat.csv")
 cat("Rows and columns in the raw data:", dim(students), "\n")
+
+# ---- 2. Clean and prepare --------------------------------------------
+# Keep only the two variables needed for the research question
+grades <- students %>%
+  select(internet, G3)
+
+# Check for missing values and for grades outside the 0-20 scale
+cat("\nMissing values per column:\n")
+print(colSums(is.na(grades)))
+cat("Grades outside the 0-20 scale:", sum(grades$G3 < 0 | grades$G3 > 20), "\n")
+
