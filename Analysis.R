@@ -27,4 +27,5 @@ grades <- students %>%
 cat("\nMissing values per column:\n")
 print(colSums(is.na(grades)))
 cat("Grades outside the 0-20 scale:", sum(grades$G3 < 0 | grades$G3 > 20), "\n")
-
+# A final grade of 0 is a recorded result, so these students are kept
+cat("Students with a final grade of 0:", sum(grades$G3 == 0), "\n")
